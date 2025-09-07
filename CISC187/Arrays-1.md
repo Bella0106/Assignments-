@@ -26,8 +26,7 @@ int main() {
     
     //5. Memory Address of the Array
     cout<<arr<<endl;
-    cout<<"Array start: " <<arr<<endl;
-    cout<<"First elements:"<<&arr[0] <<endl;
+    
     
 }
 
