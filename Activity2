@@ -1,5 +1,58 @@
 #This is my activity 2
 ```C++
+```
 #include <iostream>
-#include <vector> 
+#include <vector>
 using namespace std;
+
+// Linear Search function
+int linearSearch(const vector<int>& arr, int target, int& steps) {
+    steps = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        steps++;
+        if (arr[i] == target) {
+            return i; // return index if found
+        }
+    }
+    return -1; // not found
+}
+
+// Binary Search function
+int binarySearch(const vector<int>& arr, int target, int& steps) {
+    int left = 0;
+    int right = static_cast<int>(arr.size()) - 1;
+
+    steps = 0;
+    while (left <= right) {
+        steps++;
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == target) {
+            return mid; // return index if found
+        }
+        else if (arr[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return -1; // not found
+}
+
+int main() {
+    vector<int> arr = {2, 4, 6, 8, 10, 12, 13};
+    int target = 8;
+    int steps;
+
+    // Linear search
+    int index1 = linearSearch(arr, target, steps);
+    cout << "Linear Search found " << target << " at index " << index1
+         << " in " << steps << " steps." << endl;
+
+    // Binary search
+    int index2 = binarySearch(arr, target, steps);
+    cout << "Binary Search found " << target << " at index " << index2
+         << " in " << steps << " steps." << endl;
+
+    return 0;
+}
