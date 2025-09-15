@@ -1,0 +1,69 @@
+## Activity3
+1) 
+Algorithm that takes 4N+16 steps 
+- Linear term dominates 
+- Time complexity O(N) 
+Algorithm that takes 2N^2 steps
+-Quadratic term dominates.
+-Time Complexity: O(N^2)
+
+Function double_then_sum(array)
+
+def double_then_sum(array) 
+	doubled_array = []
+
+	array.each do |number| 
+		doubled_array << number *= 2  // this part is O(N)
+	end
+
+	sum = 0
+
+	doubled_array.each do |number|      // This is another loop over N items again this is O(N)
+		sum += number
+	end
+	return sum 
+end
+## My note for Big O notation simple rules and exxamples 
+ Algorithm: 4N + 16 steps
+ Ignore constants (like +16).
+ 4N grows with input size → O(N).
+ Algorithm: 2N^2 steps
+Ignore constants (like 2).
+ N^2 is the main growth → O(N^2).
+
+Function: double_then_sum(array)
+    - First loop: N steps (double each number).
+    - Second loop: N steps (sum numbers).
+    - Total = 2N steps → O(N).
+Shortcut Rules:
+- If you see one loop → O(N).
+- If you see two loops one after the other → O(N).
+- If you see a loop inside a loop → O(N^2).
+- Ignore small constants (+5, *2, etc).
+- Only care about the fastest growing part.
+4) 
+def multiple_cases(array) 
+	array.each do |string|
+		puts string.upcase                  // 3 operation per string 
+		puts string.downcase 
+		puts string.capitalize
+	end 
+end
+5) 
+def every_other(array) 
+	array.each_with_index do |number, index|   // goes through all N elements once so the outer loop is O(N) 
+		if index.even?                    // we only run the inner loop about half the time 
+			array.each do |other_number|                                     
+            	puts number + other_number
+			end 
+		end
+	end 
+end
+
+
+Answers of them all 
+1. O(N)
+2. O(N^2)
+3. O(N)
+4. O(N) 
+5. O(N^2) 
