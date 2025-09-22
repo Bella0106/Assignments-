@@ -5,3 +5,56 @@ Desired output: The starting month and ending month of the group of months in a 
 *End month 
 * Total sales for that stretch 
 
+
+b) implementation( C++)
+```C++
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+struct Result {
+    int startIndex;
+    int endIndex;
+    int maxSum;
+};
+
+Result maxSalesSubarray(const vector<int>& sales) {
+    size_t n = sales.size();
+    int currentSum = sales[0];
+    int maxSum = sales[0];
+    int start = 0, end = 0, tempStart = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (currentSum < 0) {
+            currentSum = sales[i];
+            tempStart = i;
+        } else {
+            currentSum += sales[i];
+        }
+
+        if (currentSum > maxSum) {
+            maxSum = currentSum;
+            start = tempStart;
+            end = i;
+        }
+    }
+    return {start, end, maxSum};
+}
+
+int main() {
+    vector<string> months = {
+        "Jan","Feb","Mar","Apr","May","Jun",
+        "Jul","Aug","Sep","Oct","Nov","Dec"
+    };
+
+    vector<int> sales = {100,113,110,85,81,101,94,106,105,102,86,63};
+
+    Result res = maxSalesSubarray(sales);
+
+    cout << "Best stretch: " << months[res.startIndex]
+         << " to " << months[res.endIndex] << endl;
+    cout << "Total Sales: " << res.maxSum << " million USD" << endl;
+
+    return 0;
+}
