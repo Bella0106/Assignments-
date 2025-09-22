@@ -1,5 +1,5 @@
 a) Approach
-inputs : list of the monthly slaes values numbers for given year and each month is paired with it's sales value ( Jan:100,Feb:113..Dec:63)
+inputs : list of the monthly sales values for given year and each month is paired with it's sales value ( Jan:100,Feb:113..Dec:63)
 Desired output: The starting month and ending month of the group of months in a row that have the highest total sales. Also, the total sales amount for that group.
 * Start month
 *End month 
@@ -85,13 +85,18 @@ function maxSalesSubarray(sales):
             end = i
 
     return (start, end, maxSum)
+Complexity analysis
+Time = o(N) we only check each month once 
+Space = O(1) we don't use extra memory,just counters( starts,end, totals) 
 
 d) Limitations 
 
-If one month is very big, it might hide other good months. Noise/Outliner A single very large month can dominate the result, even if the surrounding months are low 
+A single very large month can dominate the result, even if the surrounding months are low. If one month is very big, it might hide other good months.
 
 Only finds one best stretch of months.
 
 The algorithm finds just one best run. It doesn’t consider repeating seasonal peaks like summer sales being high.
 
 If two stretches are equal, we pick the first one.
+
+My video: https://youtu.be/IvX35aW4Y-w
