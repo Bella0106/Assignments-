@@ -1,2 +1,7 @@
 a) Approach
-inputs : list of the monthly slaes values for given year and 
+inputs : list of the monthly slaes values numbers for given year and each month is paired with it's sales value ( Jan:100,Feb:113..Dec:63)
+Desired output: The starting month and ending month of the group of months in a row that have the highest total sales. Also, the total sales amount for that group.
+* Start month
+*End month 
+* Total sales for that stretch 
+
