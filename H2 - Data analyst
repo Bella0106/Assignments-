@@ -4,7 +4,11 @@ Desired output: The starting month and ending month of the group of months in a 
 * Start month
 *End month 
 * Total sales for that stretch 
+Ties: If two groups have the same total, pick the one that appears first.
 
+All Negative Sales: Even if all numbers are negative, find the group with the highest (least negative) total.
+
+Multiple Groups: Only the first group with the highest total will be chosen.
 
 b) implementation( C++)
 ```C++
