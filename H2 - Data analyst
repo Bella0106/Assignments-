@@ -44,8 +44,8 @@ Result maxSalesSubarray(const vector<int>& sales) {
 
 int main() {
     vector<string> months = {
-        "Jan","Feb","Mar","Apr","May","Jun",
-        "Jul","Aug","Sep","Oct","Nov","Dec"
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
     };
 
     vector<int> sales = {100,113,110,85,81,101,94,106,105,102,86,63};
@@ -58,3 +58,36 @@ int main() {
 
     return 0;
 }
+
+c) Pseudocode+Complexity 
+Pseudocode (Kadane's algorithm style ) 
+function maxSalesSubarray(sales):
+    currentSum = sales[0]
+    maxSum = sales[0]
+    start = 0
+    end = 0
+    tempStart = 0
+
+    for i from 1 to length(sales)-1:
+        if currentSum < 0:
+            currentSum = sales[i]
+            tempStart = i
+        else:
+            currentSum = currentSum + sales[i]
+
+        if currentSum > maxSum:
+            maxSum = currentSum
+            start = tempStart
+            end = i
+
+    return (start, end, maxSum)
+
+d) Limitations 
+
+If one month is very big, it might hide other good months. Noise/Outliner A single very large month can dominate the result, even if the surrounding months are low 
+
+Only finds one best stretch of months.
+
+The algorithm finds just one best run. It doesn’t consider repeating seasonal peaks like summer sales being high.
+
+If two stretches are equal, we pick the first one.
