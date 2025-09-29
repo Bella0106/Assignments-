@@ -1,0 +1,35 @@
+
+array = [200, 400, 100, 50, 350,]
+
+#include <iostream>
+#include <unordered_set>
+#include <functional> 
+
+using namespace std;
+
+int main(){
+
+    unordered_set<int> hashtable = {200, 400, 100, 50 , 350}
+      int key = 100;
+      if (hashtable.find(key) != hashtable.end()) {
+          cout << "Key " << key << " found in the hashtable." << endl;
+      } else {
+          cout << "Key " << key << " not found in the hashtable." << endl;
+      }
+      string name="Ganbolor"; "<<str_hash(name)<<endl;
+      return 0;
+      cout << "Hash value of " << name << " is: " << hash<string>()(name) << endl;
+
+    return 0;
+
+Example; Hashtable (size 7)
+---------------------------------
+Index: 0    1    2  3   4   5  6
+Value: 100  200  T  350 400 -  -
+
+
+Concept is Tombstone (T)
+Purpose of it is : Mark deleted spots so search still works 
+Problem : Too many tobstone search slow down 
+This is my video 
+https://youtu.be/JWG8-rXgfnw
