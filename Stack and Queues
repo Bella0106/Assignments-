@@ -64,4 +64,22 @@ DEQUEUE(Q)
          1   2   3   4   5   6
 Q:      -   -   3   8   -   -
 Head = 3   Tail = 5
-3) 
+3) This is a ENQUEUE with overflow check
+if (Q.tail + 1 == Q.head or (Q.tail == Q.length and Q.head == 1)) then
+    print "Queue Overflow"
+else
+    Q[Q.tail] = x
+    if Q.tail == Q.length then
+        Q.tail = 1
+    else
+        Q.tail = Q.tail + 1
+DEQUEUE with underflow check
+if Q.head == Q.tail then
+    print "Queue Underflow"
+else
+    x = Q[Q.head]
+    if Q.head == Q.length then
+        Q.head = 1
+    else
+        Q.head = Q.head + 1
+    return x
