@@ -81,5 +81,18 @@ else
     if Q.head == Q.length then
         Q.head = 1
     else
-        Q.head = Q.head + 1
-    return x
+      Q.head =Q .head + 1
+    return x 
+ENQUEUE--->Is the queue full ?( Tail+1= Head) ---> Stop/signal overflow ---> Insert at tail , move Tail forward 
+DEQUEUE---> Is the queue empty? (Tail=Head) ---> Stop/Signal underflow---> Remove at Head, move Head forward
+4)
+Insert at the front ( enqueueFront) 
+Insert at rear ( enqueueRear)
+Delete from front ( dequeueFront)
+Delete from rear (dequeueRear)
+Example
+Before ; front=1 , rear=3 
+Array ; 5  8  9  2  -
+Insert 7 at the front :
+front moves to 0 
+Array : 7  5  8  9  3
