@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
+
+
 struct Node {
     int data;
     Node* next;
 };
 
-// Function to add a node at the start
 void insertAtStart(Node*& head, int value) {
-    Node* newNode = new Node();  // new nodee
+    Node* newNode = new Node();  // create a new node
     newNode->data = value;
-    newNode->next = head;  
-    head = newNode;       
+    newNode->next = head;  // new node points to current head
+    head = newNode;        // head now becomes new node
 }
 
-//  delete a node at the start
 void deleteAtStart(Node*& head) {
     if (head == nullptr) {
         cout << "List is empty, nothing to delete." << endl;
@@ -24,7 +24,6 @@ void deleteAtStart(Node*& head) {
     delete temp;            // delete the old head
 }
 
-// Function to display the linked list
 void display(Node* head) {
     Node* temp = head;
     while (temp != nullptr) {
@@ -37,6 +36,7 @@ void display(Node* head) {
 int main() {
     Node* head = nullptr;  // empty list
 
+    // Add nodes
     insertAtStart(head, 30);
     insertAtStart(head, 20);
     insertAtStart(head, 10);
@@ -52,3 +52,6 @@ int main() {
 
     return 0;
 }
+
+This is my video 
+https://youtu.be/TrmiP-iidhE?si=VQd0iwGqVmqZpHq2
