@@ -8,7 +8,11 @@ how many times you can cut 1,000 in half until you get down to 1
 
 3. 
 
+
+
+
 4. This is the copy of my code 
+
 #include <iostream>
 using namespace std;
 
@@ -37,7 +41,7 @@ Node* insert(Node* root, int value) {
     return root; // return unchanged root
 }
 
-// Function to print BST in-order (for testing)
+// Function to print BST in-order 
 void inorderTraversal(Node* root) {
     if (root == nullptr) return;
     inorderTraversal(root->left);
@@ -61,3 +65,7 @@ int main() {
 
     return 0;
 }
+
+This is my video 
+
+https://youtu.be/a9DnCF0mxtw
