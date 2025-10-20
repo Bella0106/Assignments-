@@ -7,10 +7,14 @@ maximum number of steps it would take to search for a value within it is about 1
 how many times you can cut 1,000 in half until you get down to 1
 
 3. 
+function findGreatestValue(root):
+if root is NULL:
+  return "Tree is empty"
+       current = root
+while current.right is not NULL:
+       current = current.right
 
-
-
-
+  return current.value
 4. This is the copy of my code 
 
 #include <iostream>
