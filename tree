@@ -7,3 +7,57 @@ maximum number of steps it would take to search for a value within it is about 1
 how many times you can cut 1,000 in half until you get down to 1
 
 3. 
+
+4. This is the copy of my code 
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int value) {
+        data = value;
+        left = right = nullptr;
+    }
+};
+
+Node* insert(Node* root, int value) {
+    if (root == nullptr) {
+        return new Node(value); // create new node if tree/subtree is empty
+    }
+
+    if (value < root->data) {
+        root->left = insert(root->left, value); // go left
+    } else if (value > root->data) {
+        root->right = insert(root->right, value); // go right
+    }
+
+    return root; // return unchanged root
+}
+
+// Function to print BST in-order (for testing)
+void inorderTraversal(Node* root) {
+    if (root == nullptr) return;
+    inorderTraversal(root->left);
+    cout << root->data << " ";
+    inorderTraversal(root->right);
+}
+
+int main() {
+    int arr[] = {1, 5, 9, 2, 4, 10, 6, 3, 8};
+    int n = sizeof(arr)/sizeof(arr[0]);
+
+    Node* root = nullptr;
+
+    for (int i = 0; i < n; i++) {
+        root = insert(root, arr[i]);
+    }
+
+    cout << "BST in-order traversal: ";
+    inorderTraversal(root);
+    cout << endl;
+
+    return 0;
+}
