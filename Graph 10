@@ -1,0 +1,25 @@
+1. Create a theoretical graph using a pen and paper OR electronically. 
+This is a link for my graph 
+
+2. Implement the graph created in step 1 and apply breadth and depth-first search algorithms using C++
+
+
+
+
+3. Compare both search algorithms in the context of Big O notations. 
+The most widely used methods are Breadth-First Search (BFS) and Depth-First Search (DFS) 
+----Time complexity----
+BFS = O(V + E) 
+DFS = O(V + E)
+----Space complexity---
+BFS = O(V)
+DFS = O(V)
+----Path finding----
+BFS = looks at nodes level by level, visiting all neighbors before going deeper.
+DFS = goes deep along one path before backtracking.
+----Completenese----
+BFS = Always find solution if exist 
+DFS = May get stuck in infinite depth 
+----Use Cases----
+BFS = Shortest path, web crawling 
+DFS = Topological sort , cycle detection 
