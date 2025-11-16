@@ -1,13 +1,20 @@
 1. 
 If the low number becomes bigges than high number, stop the function. This is stopping point so the function doesn't go forever
-So the base case is Stop when low is greater than the high 
-return if low > hihg 
+So the base case is Stop when low is greater than the high
+for example on this case it would be like low = 12 → STOP (because 12 > 10) 
+return if low > hihg = this is the base case 
 2. 
 This means it multiplies by number going down by 2 not by 1 it stops only if n== 1. 
-factorial (10) will never stop running it will go into infinite recursions becasue it never reaches the base case n == 1 
+factorial (10) will never stop running it will go into infinite recursions becasue it never reaches the base case n == 1 so it would most likely to just crash it 
 3. The fixed code would be look something like this 
 def sum(low, high)
-    return 0 if high < low  
+    return 0 if high < low   return low if high == low  //for the base case 
     return high + sum(low, high - 1)
 end
 4. 
+
+
+
+
+
+this is my video : https://youtu.be/2NizwsVq4EQ
