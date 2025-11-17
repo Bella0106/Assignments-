@@ -8,13 +8,39 @@ This means it multiplies by number going down by 2 not by 1 it stops only if n==
 factorial (10) will never stop running it will go into infinite recursions becasue it never reaches the base case n == 1 so it would most likely to just crash it 
 3. The fixed code would be look something like this 
 def sum(low, high)
-    return 0 if high < low   return low if high == low  //for the base case 
+    return low if high == low  //for the base case 
     return high + sum(low, high - 1)
 end
-4. 
+4. In python 
+def print_numbers(arr):
+    for item in arr:
+        if isinstance(item, int):
+            print(item)             
+        else:
+            print_numbers(item)      
 
+array = [
+    1, 2, 3,
+    [4, 5, 6],
+    7,
+    [8,
+        [9, 10, 11,
+            [12, 13, 14]
+        ]
+    ],
+    [15, 16, 17, 18, 19,
+        [20, 21, 22,
+            [23, 24, 25,
+                [26, 27, 29]
+            ],
+            30, 31
+        ],
+        32
+    ],
+    33
+]
 
-
+print_numbers(array)
 
 
 this is my video : https://youtu.be/2NizwsVq4EQ
