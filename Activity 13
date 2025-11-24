@@ -1,1 +1,52 @@
 1. Following is the 'Word Builder' algorithm. Describe its space complexity in terms of Big O.
+function wordBuilder(array) { 
+		let collection = [];
+		for(let i = 0; i < array.length; i++) { 
+				for(let j = 0; j < array.length; j++) {
+						if (i !== j) {
+								collection.push(array[i] + array[j]);
+						}
+				}
+		}
+		return collection; 
+}
+1.Space complexity : O(n^2)
+2. Space Complexity: O(n) 
+3.
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void reverseInPlace(vector<int>& array) {
+    int start = 0;
+    int end = array.size() - 1;
+
+    while (start < end) {
+
+        int temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    vector<int> arr = {1, 2, 3, 4, 5};
+    reverseInPlace(arr);
+
+    for (int num : arr) {
+        cout << num << " ";
+    }
+    return 0;
+}
+
+4. 
+|   Version      |   Time Complexit    |  Space Complexity   |
+| -------------- | ------------------- | -------------------- |
+|   Version #1   | O(n)                | O(n)                 |
+|   Version #2   | O(n)                | O(1)                 |
+|   Version #3   | O(n)                | O(n)                 |
+
+This is my video: 
