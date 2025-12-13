@@ -1,1 +1,98 @@
+-------Task number 1--------
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <set>
+
+using namespace std;
+
+struct Player {
+    string first_name;
+    string last_name;
+    string team;
+};
+
+//  to find the  players who play the both sports
+vector<string> findCommonPlayers(const vector<Player>& basketball,
+                                 const vector<Player>& football) {
+    set<string> names;         // store names from basketball
+    vector<string> common;     // store names in both
+
+    // Put all basketball player full names in a set
+    for (const auto& p : basketball) {
+        string fullName = p.first_name + " " + p.last_name;
+        names.insert(fullName);
+    }
+
+    // Check football players
+    for (const auto& p : football) {
+        string fullName = p.first_name + " " + p.last_name;
+
+        // If name already in set → they play both
+        if (names.count(fullName)) {
+            common.push_back(fullName);
+        }
+    }
+
+    return common;
+}
+
+int main() {
+    vector<Player> basketball = {
+        {"Jill", "Huang", "Gators"},
+        {"Janko", "Barton", "Sharks"},
+        {"Wanda", "Vakulskas", "Sharks"},
+        {"Jill", "Moloney", "Gators"},
+        {"Luuk", "Watkins", "Gators"}
+    };
+
+    vector<Player> football = {
+        {"Hanzla", "Radosti", "32ers"},
+        {"Tina", "Watkins", "Barleycorns"},
+        {"Alex", "Patel", "32ers"},
+        {"Jill", "Huang", "Barleycorns"},
+        {"Wanda", "Vakulskas", "Barleycorns"}
+    };
+
+    vector<string> result = findCommonPlayers(basketball, football);
+
+    for (const string& name : result) {
+        cout << name << endl;
+    }
+
+    return 0;
+}
+--------Task number 2-------
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int findMissingNumber(const vector<int>& arr, int N) {
+    int expectedSum = N * (N + 1) / 2; // sum if no number was missing
+    int actualSum = 0;
+
+    for (int num : arr) {
+        actualSum += num;
+    }
+
+    return expectedSum - actualSum; // missing number
+}
+
+int main() {
+
+    vector<int> arr = {0, 1, 2, 3, 4, 5, 6, 7, 9, 10};
+
+    int N = 10; // maximum number
+
+    cout << "Missing number: " << findMissingNumber(arr, N) << endl;
+
+    return 0;
+}
+
+-----Task number 3---- 
+
+
 
