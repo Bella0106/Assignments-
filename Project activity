@@ -171,5 +171,92 @@ int main() {
 // So the asnwer is 60 
 
 
+--- Task number 5------
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void sortTemperatures(vector<double>& temps) {
+    vector<int> count(21, 0);
+
+    // Count each temperature
+    for (double temp : temps) {
+        int index = (int)(temp * 10) - 970; //
+        count[index]++;
+    }
+
+    // Put temperatures back in sorted order
+    int i = 0;
+    for (int j = 0; j < 21; j++) {
+        while (count[j] > 0) {
+            temps[i] = (j + 970) / 10.0; // for example index1-> 1+970 = 971/1-.0=97.0 covert index back to temperature
+            i++;
+            count[j]--;
+        }
+    }
+}
+
+int main() {
+    vector<double> temps = {
+        98.6, 98.0, 97.1, 99.0, 98.9,
+        97.8, 98.5, 98.2, 98.0, 97.1
+    };
+
+    sortTemperatures(temps);
+
+    for (double t : temps) {
+        cout << t << " ";
+    }
+
+    return 0;
+}
+
+---- Task number 6 ----
+
+#include <iostream>
+#include <vector>
+#include <unordered_set>
+using namespace std;
+
+int longestConsecutiveSequence(const vector<int>& nums) {
+    unordered_set<int> numSet(nums.begin(), nums.end());
+    int maxLength = 0;
+
+    for (int num : nums) {
+        // Only start counting if num-1 is not in set
+        if (numSet.find(num - 1) == numSet.end()) {
+            int currentNum = num;
+            int length = 1;
+
+            // Count consecutive numbers
+            while (numSet.find(currentNum + 1) != numSet.end()) {
+                currentNum++;
+                length++;
+            }
+
+            if (length > maxLength) {
+                maxLength = length;
+            }
+        }
+    }
+
+    return maxLength;
+}
+
+int main() {
+    vector<int> arr1 = {10, 5, 12, 3, 55, 30, 4, 11, 2};
+    cout << "Longest consecutive sequence length: " << longestConsecutiveSequence(arr1) << endl;
+
+    vector<int> arr2 = {19, 13, 15, 12, 18, 14, 17, 11};
+    cout << "Longest consecutive sequence length: " << longestConsecutiveSequence(arr2) << endl;
+
+    return 0;
+}
+
+This is  my final video link : 
+
+
 
 
