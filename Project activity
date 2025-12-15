@@ -93,8 +93,82 @@ int main() {
 
 -----Task number 3---- 
 
+#include <iostream>
+#include <vector>
+using namespace std;
 
+int maxProfit(const vector<int>& prices) {
+    if (prices.empty()) return 0;
 
+    int lowestPrice = prices[0];   // best price to buy
+    int bestProfit = 0;            // maximum profit
+
+    for (int i = 1; i < prices.size(); i++) {
+        int currentProfit = prices[i] - lowestPrice;
+
+        if (currentProfit > bestProfit) {
+            bestProfit = currentProfit;
+        }
+
+        if (prices[i] < lowestPrice) {
+            lowestPrice = prices[i];
+        }
+    }
+
+    return bestProfit;
+}
+
+int main() {
+    vector<int> prices = {9, 4, 6, 3, 8, 5, 10};
+    cout << "Maximum Profit: " << maxProfit(prices) << endl;
+    return 0;
+}
+
+------Task number 4--------
+
+#include <iostream>
+#include <vector>
+#include <climits>
+using namespace std;
+
+int highestProductOfTwo(const vector<int>& nums) {
+    int max1 = INT_MIN, max2 = INT_MIN;
+    int min1 = INT_MAX, min2 = INT_MAX;
+
+    for (int num : nums) {
+        // update largest numbers
+        if (num > max1) {
+            max2 = max1;
+            max1 = num;
+        } else if (num > max2) {
+            max2 = num;
+        }
+
+        // update smallest numbers
+        if (num < min1) {
+            min2 = min1;
+            min1 = num;
+        } else if (num < min2) {
+            min2 = num;
+        }
+    }
+
+    return max(max1 * max2, min1 * min2);
+}
+
+int main() {
+    vector<int> arr = {5, -10, -6, 9, 4};
+    cout << highestProductOfTwo(arr);
+    return 0;
+}
+
+// max1 = 9 
+//max2= 5 
+//min1= -10
+//min2 = -6 
+// product = 9 * 5 = 45
+//-10 * -6 = 60
+// So the asnwer is 60 
 
 
 
